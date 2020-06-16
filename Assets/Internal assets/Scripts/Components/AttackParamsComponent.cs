@@ -8,5 +8,7 @@ namespace Prototype.Components
     public int Damage;
 
     public float Speed;
+
+    public float Range;
   }
 }

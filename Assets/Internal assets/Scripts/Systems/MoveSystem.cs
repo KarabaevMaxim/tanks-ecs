@@ -16,25 +16,25 @@ namespace Prototype.Systems
     {
       var deltaTime = Time.DeltaTime;
       
-      // Entities
-      //   .WithAll<PlayerComponent>()
-      //   .ForEach((ref Translation translation, ref InputComponent input, ref MoveSpeedComponent moveSpeed) =>
-      //   {
-      //     var delta = input.Value * moveSpeed.Value * deltaTime;
-      //     translation.Value += new float3(delta.x, translation.Value.y, delta.y);
-      //   })
-      //   .Run();
-      
       Entities
         .WithAll<PlayerComponent>()
-        .ForEach((ref PhysicsVelocity velocity, ref InputComponent input, ref MoveParamsComponent moveParams) =>
+        .ForEach((ref Translation translation, ref InputComponent input, ref MoveParamsComponent moveParams) =>
         {
-          var newVelocity = velocity.Linear;
-          newVelocity.z += input.Value.y * moveParams.MoveSpeedValue * deltaTime;
-          newVelocity.x += input.Value.x * moveParams.MoveSpeedValue * deltaTime;
-          velocity.Linear = newVelocity;
+          var delta = input.Value * moveParams.MoveSpeedValue * deltaTime;
+          translation.Value += new float3(delta.x, translation.Value.y, delta.y);
         })
         .Run();
+      
+      // Entities
+      //   .WithAll<PlayerComponent>()
+      //   .ForEach((ref PhysicsVelocity velocity, ref InputComponent input, ref MoveParamsComponent moveParams) =>
+      //   {
+      //     var newVelocity = velocity.Linear;
+      //     newVelocity.z += input.Value.y * moveParams.MoveSpeedValue * deltaTime;
+      //     newVelocity.x += input.Value.x * moveParams.MoveSpeedValue * deltaTime;
+      //     velocity.Linear = newVelocity;
+      //   })
+      //   .Run();
 
       return default;
     }

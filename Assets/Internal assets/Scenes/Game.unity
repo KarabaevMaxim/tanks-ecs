@@ -206,6 +206,7 @@ GameObject:
   - component: {fileID: 224761631}
   - component: {fileID: 224761630}
   - component: {fileID: 224761639}
+  - component: {fileID: 224761640}
   m_Layer: 0
   m_Name: EnemyMelee
   m_TagString: Untagged
@@ -293,7 +294,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 224761629}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ccea9ea98e38942e0b0938c27ed1903e, type: 3}
   m_Name: 
@@ -375,6 +376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 0
   Speed: 0
+  Range: 2
 --- !u!114 &224761635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,8 +389,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b763336f46b04831b6a2d7bbc04b8142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeedValue: 0
-  RotationSpeedValue: 0
+  MoveSpeedValue: 3
+  RotationSpeedValue: 10
 --- !u!114 &224761636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,6 +445,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SearchRange: 10
   Value: {fileID: 0}
+--- !u!114 &224761640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224761629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e41d6dc7adff4aa9ad4500dddcf87db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DurationInSec: 0
+  ValueInSec: 0
 --- !u!1 &558196958
 GameObject:
   m_ObjectHideFlags: 0
@@ -4374,21 +4390,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6768812730192707428, guid: ad81269b374ec1245af628847a7c2472,
-        type: 3}
-      propertyPath: m_Mass
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 6768812730192707428, guid: ad81269b374ec1245af628847a7c2472,
-        type: 3}
-      propertyPath: m_OverrideDefaultMassDistribution
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6768812730192707428, guid: ad81269b374ec1245af628847a7c2472,
-        type: 3}
-      propertyPath: m_GravityFactor
-      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad81269b374ec1245af628847a7c2472, type: 3}
