@@ -18,7 +18,8 @@ namespace Prototype.Systems
       Entities
         .WithAll<EnemyComponent>()
         .ForEach((Entity entity, 
-          ref Translation translation, 
+          ref Translation translation,
+          ref Rotation rotation,
           ref MoveParamsComponent moveParams, 
           ref MoveDelayComponent moveDelay, 
           ref TargetComponent target,
@@ -31,8 +32,11 @@ namespace Prototype.Systems
 
             if (needMove)
             {
-              var dir = math.normalize(targetTranslation.Value.xz - translation.Value.xz);
-              translation.Value.xz += dir * moveParams.MoveSpeedValue * deltaTime;
+               //var dir = math.normalize(targetTranslation.Value.xz - translation.Value.xz);
+               translation.Value.xz += math.forward(rotation.Value).xz * moveParams.MoveSpeedValue * deltaTime;
+              
+              
+               //translation.Value.xz += moveParams.MoveSpeedValue * deltaTime * math.forward(rotation.Value).xz;
             }
             else
             {
