@@ -1,14 +1,13 @@
 ﻿using Unity.Entities;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace Prototype.Components.Common
 {
   [GenerateAuthoringComponent]
-  public struct TargetComponent : IComponentData
+  public struct NeedMoveComponent : IComponentData
   {
-    public float SearchRange;
-    
     [HideInInspector]
-    public Entity Value;
+    public float3 Direction;
   }
 }

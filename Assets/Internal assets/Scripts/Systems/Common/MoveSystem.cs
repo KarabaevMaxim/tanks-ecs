@@ -14,10 +14,11 @@ namespace Prototype.Systems.Common
       var deltaTime = Time.DeltaTime;
 
       Entities
-        .ForEach((ref Translation translation, ref MoveParamsComponent moveParams, ref NeedMoveTag needMoveTag) =>
+        .ForEach((ref Translation translation, ref MoveParamsComponent moveParams, ref NeedMoveComponent needMoveTag) =>
         {
           var delta = needMoveTag.Direction * moveParams.MoveSpeedValue * deltaTime;
-          translation.Value.xz += delta;
+          //translation.Value.xz += delta;
+          translation.Value += delta;
         })
         .Run();
 

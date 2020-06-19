@@ -8,7 +8,7 @@ namespace Prototype.Infrastructure.Camera
   public class CameraFollowToEntity : MonoBehaviour
   {
     [SerializeField]
-    private float3 _offset;
+    private float3 _offset = float3.zero;
     
     public Entity EntityToFollow { private get; set; }
     
