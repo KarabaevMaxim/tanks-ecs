@@ -1,5 +1,6 @@
-﻿using Prototype.Components;
+﻿using Prototype.Components.Common;
 using Prototype.Components.Enemy;
+using Prototype.Components.Player;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;

@@ -1,4 +1,5 @@
 ﻿using Prototype.Components;
+using Prototype.Components.Common;
 using Prototype.Components.Enemy;
 using Unity.Entities;
 using Unity.Jobs;
@@ -16,12 +17,13 @@ namespace Prototype.Systems
       var entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
       
       Entities
-        .WithAll<EnemyComponent>()
+        .WithAll<EnemyComponent, MoveState>()
+        .WithNone<DelayState>()
         .ForEach((Entity entity, 
           ref Translation translation,
           ref Rotation rotation,
           ref MoveParamsComponent moveParams, 
-          ref MoveDelayComponent moveDelay, 
+          ref MoveStatesParamsComponent moveDelayParams,
           ref TargetComponent target,
           ref AttackParamsComponent attackParams) =>
         {
@@ -32,11 +34,8 @@ namespace Prototype.Systems
 
             if (needMove)
             {
-               //var dir = math.normalize(targetTranslation.Value.xz - translation.Value.xz);
-               translation.Value.xz += math.forward(rotation.Value).xz * moveParams.MoveSpeedValue * deltaTime;
-              
-              
-               //translation.Value.xz += moveParams.MoveSpeedValue * deltaTime * math.forward(rotation.Value).xz;
+              var delta = math.forward(rotation.Value).xz * moveParams.MoveSpeedValue * deltaTime;
+              translation.Value.xz += delta;
             }
             else
             {

@@ -1,6 +1,6 @@
 ﻿using Unity.Entities;
 
-namespace Components
+namespace Prototype.Components.Common
 {
   [GenerateAuthoringComponent]
   public struct HealthComponent : IComponentData

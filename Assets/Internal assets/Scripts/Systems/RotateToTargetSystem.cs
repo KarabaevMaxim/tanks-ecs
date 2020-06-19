@@ -1,4 +1,5 @@
 ﻿using Prototype.Components;
+using Prototype.Components.Common;
 using Unity.Entities;
 using Unity.Jobs;
 using Unity.Mathematics;
