@@ -8,6 +8,6 @@ namespace Prototype.Components.Common
   public struct NeedMoveComponent : IComponentData
   {
     [HideInInspector]
-    public float3 Direction;
+    public float2 Direction;
   }
 }

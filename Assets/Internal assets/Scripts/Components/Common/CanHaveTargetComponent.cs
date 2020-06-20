@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Prototype.Components.Common
 {
   [GenerateAuthoringComponent]
-  public struct TargetComponent : IComponentData
+  public struct CanHaveTargetComponent : IComponentData
   {
     public float SearchRange;
     

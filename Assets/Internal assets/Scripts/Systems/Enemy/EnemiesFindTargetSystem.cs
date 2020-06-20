@@ -22,7 +22,7 @@ namespace Prototype.Systems.Enemy
       
       Entities
         .WithAll<EnemyComponent>()
-        .ForEach((Entity enemyEntity, ref TargetComponent targetComponent, ref Translation translation, ref Rotation rotation) =>
+        .ForEach((Entity enemyEntity, ref CanHaveTargetComponent targetComponent, ref Translation translation, ref Rotation rotation) =>
         {
           if (targetComponent.Value == Entity.Null)
           {
@@ -58,7 +58,7 @@ namespace Prototype.Systems.Enemy
           }
           
           var direction = math.forward(rotation.Value);
-          commandBuffer.AddComponent(enemyEntity, new NeedMoveComponent { Direction = direction });
+          commandBuffer.AddComponent(enemyEntity, new NeedMoveComponent { Direction = direction.xz });
         });
     }
   }

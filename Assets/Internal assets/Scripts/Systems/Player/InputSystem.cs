@@ -28,8 +28,18 @@ namespace Prototype.Systems.Player
         .WithAll<PlayerComponent, Translation>()
         .ForEach((Entity entity) =>
         {
-         // commandBuffer.AddComponent(entity, new NeedMoveComponent { Direction = input });
-          commandBuffer.AddComponent(entity, new NeedMoveComponent { Direction = new float3(input.x, 0, input.y) });
+          commandBuffer.AddComponent(entity, new NeedMoveComponent { Direction = input });
+
+          if (math.length(input) <= 0.05f)
+          {
+            commandBuffer.RemoveComponent<MovingTag>(entity);
+            commandBuffer.AddComponent<NeedFindTargetTag>(entity);
+          }
+          else
+          {
+            commandBuffer.AddComponent<MovingTag>(entity);
+            commandBuffer.RemoveComponent<NeedFindTargetTag>(entity);
+          }
         })
         .Run();
       

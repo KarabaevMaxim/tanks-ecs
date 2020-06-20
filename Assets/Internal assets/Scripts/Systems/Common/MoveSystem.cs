@@ -17,8 +17,7 @@ namespace Prototype.Systems.Common
         .ForEach((ref Translation translation, ref MoveParamsComponent moveParams, ref NeedMoveComponent needMoveTag) =>
         {
           var delta = needMoveTag.Direction * moveParams.MoveSpeedValue * deltaTime;
-          //translation.Value.xz += delta;
-          translation.Value += delta;
+          translation.Value.xz += delta;
         })
         .Run();
 
