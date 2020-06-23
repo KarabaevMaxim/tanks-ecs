@@ -2,7 +2,7 @@
 using Unity.Mathematics;
 using UnityEngine;
 
-namespace Prototype.Projectiles
+namespace Prototype.Projectiles.Components
 {
   [GenerateAuthoringComponent]
   public struct TargetedPositionProjectileComponent : IComponentData

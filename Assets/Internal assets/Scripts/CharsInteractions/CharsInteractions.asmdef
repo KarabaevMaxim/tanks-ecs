@@ -1,0 +1,25 @@
+{
+    "name": "CharsInteractions",
+    "references": [
+        "Unity.Entities",
+        "Unity.Jobs",
+        "Unity.Transforms",
+        "Unity.Mathematics",
+        "Unity.Mathematics.Extensions",
+        "Unity.Mathematics.Extensions.Hybrid",
+        "Player",
+        "Enemy",
+        "Common"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
+
+

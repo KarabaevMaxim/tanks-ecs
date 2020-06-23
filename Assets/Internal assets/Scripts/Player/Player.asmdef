@@ -1,0 +1,22 @@
+﻿{
+	"name": "Player",
+	"references": [
+		"Unity.Entities",
+		"Unity.Transforms",
+		"Unity.Jobs",
+		"Unity.Collections",
+		"Unity.Mathematics",
+		"Unity.Mathematics.Extensions",
+		"Unity.Mathematics.Extensions.Hybrid",
+		"Common"
+	],
+	"includePlatforms": [],
+	"excludePlatforms": [],
+	"allowUnsafeCode": false,
+	"overrideReferences": false,
+	"precompiledReferences": [],
+	"autoReferenced": true,
+	"defineConstraints": [],
+	"versionDefines": [],
+	"noEngineReferences": false
+}

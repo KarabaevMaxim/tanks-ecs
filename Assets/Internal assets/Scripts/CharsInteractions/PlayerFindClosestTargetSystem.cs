@@ -5,9 +5,9 @@ using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 
-namespace Prototype.Player.Systems
+namespace Prototype.CharsInteractions
 {
-  public class FindClosestTargetSystem : ComponentSystem
+  public class PlayerFindClosestTargetSystem : ComponentSystem
   {
     private EndSimulationEntityCommandBufferSystem _commandBufferSystem;
     

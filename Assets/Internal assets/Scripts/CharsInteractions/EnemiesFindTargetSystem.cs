@@ -5,7 +5,7 @@ using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 
-namespace Prototype.Enemy.Systems
+namespace Prototype.CharsInteractions
 {
   public class EnemiesFindTargetSystem : ComponentSystem
   {

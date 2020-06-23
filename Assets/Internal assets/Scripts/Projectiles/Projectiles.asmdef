@@ -1,0 +1,24 @@
+﻿{
+	"name": "Projectiles",
+	"references": [
+		"Unity.Entities",
+		"Unity.Transforms",
+		"Unity.Jobs",
+		"Unity.Collections",
+		"Unity.Mathematics",
+		"Unity.Mathematics.Extensions",
+		"Unity.Mathematics.Extensions.Hybrid",
+		"Common",
+		"Enemy",
+		"Player"
+	],
+	"includePlatforms": [],
+	"excludePlatforms": [],
+	"allowUnsafeCode": false,
+	"overrideReferences": false,
+	"precompiledReferences": [],
+	"autoReferenced": true,
+	"defineConstraints": [],
+	"versionDefines": [],
+	"noEngineReferences": false
+}
