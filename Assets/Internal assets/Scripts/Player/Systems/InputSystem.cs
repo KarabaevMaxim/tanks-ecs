@@ -1,13 +1,12 @@
-﻿using Prototype.Components;
-using Prototype.Components.Common;
-using Prototype.Components.Player;
+﻿using Prototype.Common.Components;
+using Prototype.Player.Components;
 using Unity.Entities;
 using Unity.Jobs;
 using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
 
-namespace Prototype.Systems.Player
+namespace Prototype.Player.Systems
 {
   [AlwaysSynchronizeSystem]
   public class InputSystem : JobComponentSystem

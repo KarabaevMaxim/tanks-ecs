@@ -1,11 +1,10 @@
-﻿using Prototype.Components;
-using Prototype.Components.Common;
+﻿using Prototype.Common.Components;
 using Unity.Entities;
 using Unity.Jobs;
 using Unity.Mathematics;
 using Unity.Transforms;
 
-namespace Prototype.Systems
+namespace Prototype.Common.Systems
 {
   [AlwaysSynchronizeSystem]
   public class RotateToTargetSystem : JobComponentSystem
@@ -18,7 +17,7 @@ namespace Prototype.Systems
         .ForEach((ref Translation translation,
           ref Rotation rotation,
           ref CanHaveTargetComponent target, 
-          ref MoveParamsComponent moveParams) =>
+          ref MoveSpeedComponent moveParams) =>
         {
           if (target.Value != Entity.Null)
           {

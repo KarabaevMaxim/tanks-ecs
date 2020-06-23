@@ -23,6 +23,12 @@ MonoBehaviour:
     m_SerializedLabels: []
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
+  - m_GUID: dae4749ab9f76564d96b7a4adf914f92
+    m_Address: Assets/Internal assets/Prefabs/SimpleProjectile.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0adab4f7f0da5744a8f40a98a0684f9c, type: 2}
   m_SchemaSet:

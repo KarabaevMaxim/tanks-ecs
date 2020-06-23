@@ -1,7 +1,7 @@
 ﻿using Unity.Entities;
 using UnityEngine;
 
-namespace Prototype.Components.Common
+namespace Prototype.Common.Components
 {
   [GenerateAuthoringComponent]
   public struct CanHaveTargetComponent : IComponentData

@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 6584573208175896237}
   - component: {fileID: 6584573208175896236}
   - component: {fileID: 1260347794}
+  - component: {fileID: 7193937320396588041}
   m_Layer: 0
   m_Name: EnemyMelee
   m_TagString: Untagged
@@ -236,8 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b763336f46b04831b6a2d7bbc04b8142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeedValue: 3
-  RotationSpeedValue: 10
+  Value: 0
 --- !u!114 &6584573208175896208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 0
-  Speed: 0
+  TimeToAttackInSec: 0
   Range: 2
 --- !u!114 &6584573208175896211
 MonoBehaviour:
@@ -416,3 +416,17 @@ MonoBehaviour:
   Direction:
     x: 0
     y: 0
+--- !u!114 &7193937320396588041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6584573208175896239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2fa07ade09009469ef416b61deb2e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SearchRange: 10
+  Value: {fileID: 0}

@@ -1,13 +1,11 @@
-﻿using System.Collections.Generic;
-using Prototype.Components.Common;
-using Prototype.Components.Enemy;
-using Prototype.Components.Player;
+﻿using Prototype.Common.Components;
+using Prototype.Enemy.Components;
+using Prototype.Player.Components;
 using Unity.Entities;
-using Unity.Jobs;
 using Unity.Mathematics;
 using Unity.Transforms;
 
-namespace Prototype.Systems.Common
+namespace Prototype.Player.Systems
 {
   public class FindClosestTargetSystem : ComponentSystem
   {
@@ -51,7 +49,10 @@ namespace Prototype.Systems.Common
           canHaveTarget.Value = closestEnemy;
 
           if (canHaveTarget.Value != Entity.Null)
+          {
             buffer.RemoveComponent<NeedFindTargetTag>(player);
+            buffer.AddComponent<CanAttackTag>(player);
+          }
         });
     }
   }

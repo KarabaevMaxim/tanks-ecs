@@ -1,7 +1,7 @@
 ﻿using Unity.Entities;
 using Unity.Rendering;
 
-namespace Prototype.Systems.Other
+namespace Prototype.Infrastructure.Systems
 {
   [UpdateInGroup(typeof(InitializationSystemGroup))]
   public class DisableCopySkinnedEntityDataToRenderEntitySystem : ComponentSystem

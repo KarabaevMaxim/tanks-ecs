@@ -1,6 +1,6 @@
 ﻿using Unity.Entities;
 
-namespace Prototype.Components.Common
+namespace Prototype.Common.Components
 {
   public struct CanAttackTag : IComponentData { }
 }

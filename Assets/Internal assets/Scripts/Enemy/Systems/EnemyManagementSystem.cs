@@ -3,7 +3,7 @@ using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs;
 
-namespace Prototype.Systems.Enemy
+namespace Prototype.Enemy.Systems
 {
   [AlwaysSynchronizeSystem]
   public class EnemySpawnSystem : JobComponentSystem

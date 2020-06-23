@@ -1,6 +1,6 @@
 ﻿using Unity.Entities;
 
-namespace Prototype.Components.Enemy
+namespace Prototype.Enemy.Components
 {
   [GenerateAuthoringComponent]
   public struct EnemyComponent : IComponentData { }

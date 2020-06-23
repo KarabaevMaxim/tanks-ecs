@@ -1,13 +1,13 @@
 ﻿using Unity.Entities;
 
-namespace Prototype.Components.Common
+namespace Prototype.Common.Components
 {
   [GenerateAuthoringComponent]
   public struct AttackParamsComponent : IComponentData
   {
     public int Damage;
 
-    public float Speed;
+    public float TimeToAttackInSec;
 
     public float Range;
   }

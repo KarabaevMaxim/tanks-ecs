@@ -1,11 +1,11 @@
-﻿using Prototype.Components.Common;
-using Prototype.Components.Enemy;
-using Prototype.Components.Player;
+﻿using Prototype.Common.Components;
+using Prototype.Enemy.Components;
+using Prototype.Player.Components;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 
-namespace Prototype.Systems.Enemy
+namespace Prototype.Enemy.Systems
 {
   public class EnemiesFindTargetSystem : ComponentSystem
   {
@@ -59,6 +59,7 @@ namespace Prototype.Systems.Enemy
           
           var direction = math.forward(rotation.Value);
           commandBuffer.AddComponent(enemyEntity, new NeedMoveComponent { Direction = direction.xz });
+          commandBuffer.AddComponent<CanAttackTag>(enemyEntity);
         });
     }
   }

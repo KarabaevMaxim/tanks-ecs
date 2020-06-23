@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.jimmycushnie.outline-effect-but-its-faster": "https://github.com/JimmyCushnie/Outline-Effect-but-its-faster.git#unity-package-manager",
     "com.unity.addressables": "1.8.4",
     "com.unity.cinemachine": "2.5.0",
     "com.unity.collab-proxy": "1.2.16",
@@ -44,5 +45,11 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
+  },
+  "lock": {
+    "com.jimmycushnie.outline-effect-but-its-faster": {
+      "revision": "unity-package-manager",
+      "hash": "828367c6b80af8ef7ff614bf367507de51071125"
+    }
   }
 }

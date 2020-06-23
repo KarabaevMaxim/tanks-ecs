@@ -3,7 +3,7 @@ using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs;
 
-namespace Prototype.Systems.Player
+namespace Prototype.Player.Systems
 {
   [AlwaysSynchronizeSystem]
   public class PlayerManagementSystem : JobComponentSystem

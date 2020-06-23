@@ -1,9 +1,9 @@
 ﻿using Unity.Entities;
 
-namespace Prototype.Components.Common
+namespace Prototype.Common.Components
 {
   [GenerateAuthoringComponent]
-  public struct HealthComponent : IComponentData
+  public struct ArmorComponent : IComponentData
   {
     public int Value;
   }

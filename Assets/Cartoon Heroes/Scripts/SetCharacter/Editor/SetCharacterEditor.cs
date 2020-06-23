@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Prototype.Cartoon_Heroes.Scripts.SetCharacter;
 using UnityEngine;
 using UnityEditor;
 

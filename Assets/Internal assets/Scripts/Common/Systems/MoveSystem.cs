@@ -1,10 +1,9 @@
-﻿using Prototype.Components;
-using Prototype.Components.Common;
+﻿using Prototype.Common.Components;
 using Unity.Entities;
 using Unity.Jobs;
 using Unity.Transforms;
 
-namespace Prototype.Systems.Common
+namespace Prototype.Common.Systems
 {
   [AlwaysSynchronizeSystem]
   public class MoveSystem : JobComponentSystem
@@ -14,9 +13,9 @@ namespace Prototype.Systems.Common
       var deltaTime = Time.DeltaTime;
 
       Entities
-        .ForEach((ref Translation translation, ref MoveParamsComponent moveParams, ref NeedMoveComponent needMoveTag) =>
+        .ForEach((ref Translation translation, ref MoveSpeedComponent moveParams, ref NeedMoveComponent needMoveTag) =>
         {
-          var delta = needMoveTag.Direction * moveParams.MoveSpeedValue * deltaTime;
+          var delta = needMoveTag.Direction * moveParams.Value * deltaTime;
           translation.Value.xz += delta;
         })
         .Run();

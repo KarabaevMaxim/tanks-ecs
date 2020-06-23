@@ -2,7 +2,7 @@
 using Unity.Mathematics;
 using UnityEngine;
 
-namespace Prototype.Components.Common
+namespace Prototype.Common.Components
 {
   [GenerateAuthoringComponent]
   public struct NeedMoveComponent : IComponentData

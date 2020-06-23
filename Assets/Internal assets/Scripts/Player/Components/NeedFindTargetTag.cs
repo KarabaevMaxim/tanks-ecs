@@ -1,6 +1,6 @@
 ﻿using Unity.Entities;
 
-namespace Prototype.Components.Player
+namespace Prototype.Player.Components
 {
   public struct NeedFindTargetTag : IComponentData { }
 }
