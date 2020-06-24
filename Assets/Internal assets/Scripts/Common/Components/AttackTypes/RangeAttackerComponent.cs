@@ -6,5 +6,7 @@ namespace Prototype.Common.Components.AttackTypes
   public struct RangeAttackerComponent : IComponentData
   {
     public Entity ProjectilePrefab;
+
+    public Entity SpawnPoint;
   }
 }

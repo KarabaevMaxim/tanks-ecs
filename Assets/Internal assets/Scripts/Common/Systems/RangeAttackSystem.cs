@@ -2,7 +2,9 @@
 using Prototype.Common.Components.AttackTypes;
 using Unity.Entities;
 using Unity.Jobs;
+using Unity.Mathematics;
 using Unity.Transforms;
+using UnityEngine;
 
 namespace Prototype.Common.Systems
 {
@@ -49,6 +51,16 @@ namespace Prototype.Common.Systems
           ref AttackParamsComponent attackParams,
           ref Translation translation) =>
         {
+          var targetTranslation = entityManager.GetComponentData<Translation>(canHaveTarget.Value);
+          var spawnPoint = entityManager.GetComponentData<Translation>(rangeAttacker.SpawnPoint);
+          var projectile = buffer.Instantiate(rangeAttacker.ProjectilePrefab);
+          buffer.AddComponent(projectile, new NeedMoveComponent 
+            { Direction = targetTranslation.Value.xz - translation.Value.xz });
+          buffer.AddComponent(projectile, new Translation
+            { Value = spawnPoint.Value });
+          buffer.AddComponent<AttackReloadingComponent>(entity);
+          buffer.RemoveComponent<CanAttackTag>(entity);
+          Debug.Log("Атака");
         })
         .Run();
       
