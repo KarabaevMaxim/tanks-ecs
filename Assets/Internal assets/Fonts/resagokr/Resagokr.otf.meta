@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 109e99671da3b75448c5ce6c07e22fbb
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Resagokr
+  fontNames:
+  - Resagokr
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 008f60fc62536a847817da94a47680ad, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
