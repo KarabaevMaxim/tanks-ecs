@@ -15,6 +15,7 @@ namespace Prototype.Common.Systems
     protected override void OnCreate()
     {
       _commandBufferSystem = World.GetExistingSystem<EndSimulationEntityCommandBufferSystem>();
+      Enabled = false;
     }
 
     protected override JobHandle OnUpdate(JobHandle inputDeps)

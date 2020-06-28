@@ -17,7 +17,7 @@ namespace Prototype.Common.Systems
         .ForEach((ref Translation translation,
           ref Rotation rotation,
           ref CanHaveTargetComponent target, 
-          ref MoveSpeedComponent moveParams) =>
+          ref MoveParamsComponent moveParams) =>
         {
           if (target.Value != Entity.Null)
           {

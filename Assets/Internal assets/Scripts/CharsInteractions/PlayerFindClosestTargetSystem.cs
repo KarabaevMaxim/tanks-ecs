@@ -49,10 +49,7 @@ namespace Prototype.CharsInteractions
           canHaveTarget.Value = closestEnemy;
 
           if (canHaveTarget.Value != Entity.Null)
-          {
-            buffer.RemoveComponent<NeedFindTargetTag>(player);
             buffer.AddComponent<CanAttackTag>(player);
-          }
         });
     }
   }

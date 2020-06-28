@@ -9,7 +9,7 @@ using UnityEngine;
 namespace Prototype.Player.Systems
 {
   [AlwaysSynchronizeSystem]
-  public class InputSystem : JobComponentSystem
+  public class InputSystem : SystemBase
   {
     private EndSimulationEntityCommandBufferSystem _commandBufferSystem;
     
@@ -18,31 +18,28 @@ namespace Prototype.Player.Systems
       _commandBufferSystem = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
     }
 
-    protected override JobHandle OnUpdate(JobHandle inputDeps)
+    protected override void OnUpdate()
     {
       var input = new float2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-      var commandBuffer = _commandBufferSystem.CreateCommandBuffer();
+      var commandBuffer = _commandBufferSystem.CreateCommandBuffer().ToConcurrent();
       
       Entities
         .WithAll<PlayerComponent, Translation>()
-        .ForEach((Entity entity) =>
+        .ForEach((Entity entity, in int entityInQueryIndex) =>
         {
-          commandBuffer.AddComponent(entity, new NeedMoveComponent { Direction = input });
 
           if (math.length(input) <= 0.05f)
           {
-            commandBuffer.RemoveComponent<MovingTag>(entity);
-            commandBuffer.AddComponent<NeedFindTargetTag>(entity);
+            //commandBuffer.RemoveComponent<MovingTag>(entityInQueryIndex, entity);
+            commandBuffer.RemoveComponent<NeedMoveComponent>(entityInQueryIndex, entity);
           }
           else
           {
-            commandBuffer.AddComponent<MovingTag>(entity);
-            commandBuffer.RemoveComponent<NeedFindTargetTag>(entity);
+            commandBuffer.AddComponent(entityInQueryIndex, entity, new NeedMoveComponent { Direction = input });
+           // commandBuffer.AddComponent<MovingTag>(entityInQueryIndex, entity);
           }
         })
-        .Run();
-      
-      return default;
+        .ScheduleParallel();
     }
   }
 }

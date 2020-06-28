@@ -2,8 +2,9 @@
     "name": "Infrastructure",
     "references": [
         "Unity.Entities",
-        "Unity.Rendering.Hybrid",
         "Unity.Entities.Hybrid",
+        "Unity.Rendering.Hybrid",
+        "Unity.Rendering.Hybrid.Editor",
         "Unity.Transforms",
         "Unity.Mathematics",
         "Unity.Mathematics.Extensions.Hybrid",

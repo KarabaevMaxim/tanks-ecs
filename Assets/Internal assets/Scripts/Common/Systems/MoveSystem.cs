@@ -13,9 +13,12 @@ namespace Prototype.Common.Systems
       var deltaTime = Time.DeltaTime;
 
       Entities
-        .ForEach((ref Translation translation, ref MoveSpeedComponent moveParams, ref NeedMoveComponent needMoveTag) =>
+        .WithNone<MachineComponent>()
+        .ForEach((ref Translation translation,
+          ref MoveParamsComponent moveParams, 
+          ref NeedMoveComponent needMoveTag) =>
         {
-          var delta = needMoveTag.Direction * moveParams.Value * deltaTime;
+          var delta = needMoveTag.Direction * moveParams.MoveSpeed * deltaTime;
           translation.Value.xz += delta;
         })
         .Run();

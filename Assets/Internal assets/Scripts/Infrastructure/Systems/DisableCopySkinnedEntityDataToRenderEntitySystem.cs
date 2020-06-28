@@ -8,7 +8,7 @@ namespace Prototype.Infrastructure.Systems
   {
     protected override void OnCreate()
     {
-      World.GetOrCreateSystem<CopySkinnedEntityDataToRenderEntity>().Enabled = false;
+      //World.GetOrCreateSystem<CopySkinnedEntityDataToRenderEntity>().Enabled = false;
     }
 
     protected override void OnUpdate() { }
