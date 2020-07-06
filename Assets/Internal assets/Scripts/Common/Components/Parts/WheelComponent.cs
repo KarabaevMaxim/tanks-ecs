@@ -1,7 +1,7 @@
 ﻿using Unity.Entities;
 using UnityEngine;
 
-namespace Prototype.Common.Components
+namespace Prototype.Common.Components.Parts
 {
   [GenerateAuthoringComponent]
   public struct WheelComponent : IComponentData

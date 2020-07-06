@@ -1,4 +1,5 @@
 ﻿using Prototype.Common.Components;
+using Prototype.Common.Components.Parts;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Physics.Systems;
@@ -10,39 +11,56 @@ namespace Prototype.Common.Systems
   [UpdateBefore(typeof(BuildPhysicsWorld))]
   public class MachineMoveSystem : SystemBase
   {
+    private EndSimulationEntityCommandBufferSystem _commandBufferSystem;
+
+    protected override void OnCreate()
+    {
+      _commandBufferSystem =
+        World.DefaultGameObjectInjectionWorld.GetExistingSystem<EndSimulationEntityCommandBufferSystem>();
+    }
+    
     protected override void OnUpdate()
     {
       var deltaTime = Time.DeltaTime;
-      var entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
-
+      var commandBuffer = _commandBufferSystem.CreateCommandBuffer();
+      
       Entities
         .WithAll<MachineComponent>()
         .ForEach((Entity entity,
           ref Translation translation,
-          ref Rotation rotation,
+      //    in Rotation rotation,
           in NeedMoveComponent needMove,
-          in MoveParamsComponent moveParams) =>
+          in MoveParamsComponent moveParams,
+          in int entityInQueryIndex) =>
         {
           var delta = needMove.Direction * moveParams.MoveSpeed * deltaTime;
           translation.Value.xz += delta;
-          rotation.Value = quaternion.LookRotationSafe(
-            new float3(needMove.Direction.x, 0, needMove.Direction.y), math.up());
+          var rotDelta = new float3(
+            needMove.Direction.x * moveParams.RotationSpeed,
+            0, 
+            needMove.Direction.y * moveParams.RotationSpeed);
+
+          commandBuffer.AddComponent(entity, new NeedRotateComponent
+          {
+            RotationSpeed = moveParams.RotationSpeed,
+            TargetValue = rotDelta
+          });
 
           var buffer = GetBufferFromEntity<Child>(true);
 
           foreach (var child in buffer[entity])
           {
-            if (entityManager.HasComponent<WheelComponent>(child.Value))
+            if (HasComponent<WheelComponent>(child.Value))
             {
-              var wheel = entityManager.GetComponentData<WheelComponent>(child.Value);
+              var wheel = GetComponent<WheelComponent>(child.Value);
 
-              var wheelRotation = entityManager.GetComponentData<Rotation>(child.Value);
-              var rotDelta = (moveParams.MoveSpeed * deltaTime) / (math.PI * wheel.Diameter);
+              var wheelRotation = GetComponent<Rotation>(child.Value);
+              var wheelRotDelta = (moveParams.MoveSpeed * deltaTime) / (math.PI * wheel.Diameter);
 
-              entityManager.SetComponentData(child.Value, new Rotation
+              SetComponent(child.Value, new Rotation
               {
                 Value = math.mul(wheelRotation.Value,
-                  quaternion.Euler(rotDelta, 0, 0))
+                  quaternion.Euler(wheelRotDelta, 0, 0))
               });
             }
           }
